@@ -10,6 +10,9 @@
     border: none;
     background-color: white;
 }
+.lr-button:focus {
+    outline: none;
+}
 .login-register-form {
     padding: 2% 5%;
     background-color: white;
@@ -31,14 +34,25 @@
 #register-form{
     display: none;
 }
-#login-button {
+.s-button:hover {
+    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
+}
+
+#sl-button:active {
+    background-color:  rgb(173, 255, 47, 0.1);
+    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
+    border: none;
+}
+#sl-button {
     width: 40%;
     margin: auto;
 }
-#login-button:hover {
-    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
-}
-#login-button:active {
+#sr-button:active {
     background-color:  rgb(173, 255, 47, 0.1);
+    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
     border: none;
+}
+#sr-button {
+    width: 40%;
+    margin: auto;
 }
