@@ -1,70 +1,91 @@
 html,body{
-    height: 100%;
-    width: 100%;
-    
+    font-size: 10px; 
+    margin: auto;
+    height: 10000px;
 }
 
-.back{
-    height: 50%;
-    width: 100%;
-    display: inline-block;
+.background{
+    width: 100%; 
+    height: 600px; 
+    margin: auto;
+    border: 3px solid #73AD21;
     background-image: url(Background.png);
-    background-repeat: no-repeat;
     background-size: cover;
-    size: auto;
     
-}
-
-nav{
-    position: sticky;
-    top:0px;
-}
-
-ul li{
-    list-style:none ; 
-    padding-right: 20px; 
-    flex-grow: 1; 
+    
 }
 
 #logo{
-    width: 100px;
-    height: 80px;
-    float: left;
+    width: 125px;
+    height: 100px; 
+    padding: 25px; 
+    padding-left: 0px; 
+    padding-top: 0px;
 }
+
+#logo:hover{
+    filter: drop-shadow(8px 8px 10px green);}
+
 #login{
-    width: 100px;
-    height: 80px;
-    float: right;
+    width: 125px;
+    height: 100px;
+    color: antiquewhite; 
+    padding: 25px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+#login:hover{
+    filter: drop-shadow(8px 8px 10px green);
+}
+
+#brandName{
+    font-size: 2.5em;
+    color: black;
+    font-weight: bold;
+    font-family: 'Brush Script MT', cursive;
+    padding: 25px;
 }
 
 #slogan{
-    display: block;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 70px;
+    color: antiquewhite;
     text-align: center;
-    color: whitesmoke;
-    
-}
-
-
-
-#background{
-    background-image: url("Logo.png") ;
-    background-size: cover;
+    padding: 10px;
+    padding-top: 210px;
     width: 100%;
-    height: 10;
-    padding-top: 66.64%; 
-            
+    font-size: 5em;
 }
-li a{
-    text-decoration-line: none;
-    
+
+ li{
+    list-style: none;  
 }
 
 .d-flex{
+    justify-content: space-between;
+}
+
+ul{
     padding: 0px;
 }
 
-.search{
-    justify-content: center;
+nav{
+    display: block;
+    height: 75px;
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    position: fixed;
+}
+
+.searchBar{
+    margin: 1%;
+    padding-bottom: 10px;
+    
+}
+
+#location,#category,#price,#area,#search{
+    margin-bottom: 200px;
+    width: 90%;
+    font-size: 2em;
+    flex-grow: 1;
 }

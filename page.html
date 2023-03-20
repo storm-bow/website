@@ -5,23 +5,21 @@
   <link rel="stylesheet" href="stylesheet.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Document</title>
   
 </head>
+
 <body>
-<div class="back">
+
+<div class="background">
+
   <nav>
-    <ul class="d-flex flex-nowrap align-items-baseline">
+    <ul class="d-flex">
       <li>
         <img id=logo src="Logo.png" alt="Our Logo">    
       </li>
-      <li>
-        <a href="">Αιτήσεις</a>
-      </li>
-      <li>
-        <a href="">Προπτυχιακές σπουδές</a>
-      </li>
+      <li id="brandName"> REAL ESTATE</li>
       <li>
         <img id="login" src="login.png" alt="Login"> 
       </li>
@@ -30,26 +28,33 @@
 
   <label for="location" id="slogan">Βρες το μέρος που ανήκεις</label>
 
-  <div class="d-flex flex-nowrap align-items-baseline search">
-    <input type="text" id="location" name="location" placeholder="perioxh">
-    <select name="kathgoria" class="align-self-stretch" >
-      <option value="palio">palio</option>
-      <option value="neo">neo</option>
+  <div class="d-flex  searchBar">
+
+    <input type="text" id="location" name="location" placeholder="Περιοχή">
+
+    <select name="category" id="category">
+      <option value="Κατοικία">Κατοικία</option>
+      <option value="Επαγγελματικό">Επαγγελματικό</option>
+      <option value="Γη">Γη</option>
     </select>
-    <input type="number" name="timh" placeholder="timh">
-    <input type="number" name="embadon" placeholder="embadon">
-    <input type="submit" value="anazhthsh">
+
+    <input type="number" id="price" name="price" placeholder="Τιμή">
+
+    <input type="number" id="area" name="area" placeholder="Εμβαδόν">
+
+    <button type="button" id="search">Αναζήτηση</button>
+
   </div>
+
 </div>
 
-<div>
-  <p></p>
+<div class="d-flex">
+
+  
 </div>
- 
 
 
-  
-  
+
 
       
       
