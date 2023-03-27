@@ -1,0 +1,58 @@
+#login-register-form-container {
+    border: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    margin: 5% auto;
+    max-width: 480px;
+    background-color: rgba(169, 169, 169, 0.1);
+}
+.lr-button {
+    border: none;
+    background-color: white;
+}
+.lr-button:focus {
+    outline: none;
+}
+.login-register-form {
+    padding: 2% 5%;
+    background-color: white;
+}
+#l-button-container {
+    border-right: solid;
+    border-width: 2px;
+    border-top-right-radius: 6px;
+    background-color: white;
+}
+#r-button-container {
+    border-width: 2px;
+    border-bottom: solid ;
+    border-top-left-radius: 6px;
+}
+#r-button {
+    background-color: rgba(169, 169, 169, 0);
+}
+#register-form{
+    display: none;
+}
+.s-button:hover {
+    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
+}
+
+#sl-button:active {
+    background-color:  rgb(173, 255, 47, 0.1);
+    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
+    border: none;
+}
+#sl-button {
+    width: 40%;
+    margin: auto;
+}
+#sr-button:active {
+    background-color:  rgb(173, 255, 47, 0.1);
+    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
+    border: none;
+}
+#sr-button {
+    width: 40%;
+    margin: auto;
+}
