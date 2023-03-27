@@ -1,0 +1,41 @@
+#navigation-bar {
+    color: #F2F2F2;
+    background-color: #383838;
+    position: fixed;
+    top: 0px;
+    font-size: small;
+    white-space: nowrap;
+    padding: 0px;
+    margin: 0px;
+    min-width: 780px;
+    z-index: 1;
+}
+.menu-options {
+    display: flex;
+    height: 60px;
+    min-width: 60px;
+    justify-content: center;
+    align-items: center;
+}
+#logo {
+    width: 80px;
+    height: 60px;
+}
+#brand-name {
+    font-size:xx-large;
+    justify-content: start;
+}
+#entry {
+    display: flex;
+    border-left: solid;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-width: 1px;
+    justify-content: center;
+    align-items: center;
+}
+#entry * {
+    margin: 0px 2px;
+}
+#entry:hover svg{
+    color: rgb(230, 196, 8);
+}

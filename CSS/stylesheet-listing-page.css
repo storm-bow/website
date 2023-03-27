@@ -1,8 +1,13 @@
+html,body{
+    height: 100%;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
 #listing-form-container {
     border: solid;
     border-width: 1px;
     border-radius: 4px;
-    margin: 5% auto;
+    margin: 20% auto;
     max-width: 720px;
     background-color: rgba(169, 169, 169, 0.1);
     padding: 2%;
