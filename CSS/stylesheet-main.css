@@ -4,6 +4,10 @@
 html,body{
     height: 100%;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
 }
 
 a {color: inherit;}
@@ -42,6 +46,12 @@ a:hover {
     flex-grow: 1;
 }
 
+
+#change-section-anchor {
+    position: relative;
+    margin: 15% 50%;
+    color: rgba(255, 255, 255, 0.6);
+}
 
 #section2{
     background-color: #F2F2F2;
