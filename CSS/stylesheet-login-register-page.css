@@ -1,8 +1,3 @@
-html,body{
-    height: 100%;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
 #login-register-form-container {
     border: solid;
     border-width: 2px;
