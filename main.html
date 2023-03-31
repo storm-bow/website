@@ -6,6 +6,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/stylesheet-common.css">
     <link rel="stylesheet" href="CSS/stylesheet-main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,31 +19,39 @@
     <nav class="container-fluid" id="navigation-bar">
         <div class="row no-gutters space-nowrap">
             <div class="col-1">
-                <div class="menu-options">
+                <div class="menu-items">
                     <a href="main.html"><img id="logo" src="media/Logo.png"></a>
                 </div>
             </div>
             <div class="col-7">
-                <div class="menu-options" id="brand-name">Real Estate</div>
+                <div class="menu-items" id="brand-name">Real Estate</div>
             </div>
             <div class="col-1">
-                <div class="menu-options"><a>FOR SALE</a></div>
+                <div class="menu-items menu-options" ><a>FOR SALE</a></div>
             </div>
             <div class="col-1">
-                <div class="menu-options"><a>TO LET</a></div>
+                <div class="menu-items menu-options"><a>TO LET</a></div>
             </div>
             <div class="col-1">
-                <div class="menu-options"><a href="about-us.html">ABOUT US</a></div>
+                <div class="menu-items menu-options"><a href="about-us.html">ABOUT US</a></div>
             </div>
             <div class="col-1">
-                <div class="menu-options" id="entry">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
-                        <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
-                        <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
-                    </svg>
-                    <i class="bi bi-door-open"></i>
-                    <a href="login-register-page.html">Log-in</a>
+                <div class="menu-items menu-options" id="entry">
+                    <a href="login-register-page.html" id="login">
+                        <span>LOG</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                            <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                            <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
+                        </svg>
+                        <span>IN</span>
+                    </a>
                 </div>
+                <div class="menu-items" id="list-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </div>
+            </div>
         </div>
     </nav>
     <section id="section1">
@@ -76,27 +86,57 @@
 
     <section id="section2">
 
-        <p id="sec2-title">Property Recommendations</p>
+        <h1 id="sec2-title">Property Recommendations</h1>
 
-        <div class="d-flex recommendations">
-            <p class="recommended-items">1</p>
-
-            <p class="recommended-items">2</p>
-
-            <p class="recommended-items">3</p>
+        <div id="recommendations">
+            <div id="slideshow" class="carousel" data-bs-ride="carousel" >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="media\ameland-5651866__480.jpg">
+                        <p>Property 1</p>
+                        <p>Some basic informaton</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="media\cottage-2955582__480.jpg">
+                        <p>Property 2</p>
+                        <p>Some basic informaton</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="media\house-1477041__480.jpg">
+                        <p>Property 3</p>
+                        <p>Some basic informaton</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="media\house-1836070__480.jpg">
+                        <p>Property 4</p>
+                        <p>Some basic informaton</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="media\residence-2219972__480.jpg">
+                        <p>Property 5</p>
+                        <p>Some basic informaton</p>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
 
     </section>
 
     <section id="section3">
 
-        <p id="sec3-title">About</p>
+        <h1 id="sec3-title">About</h1>
 
     </section>
 
-
     <!--Script District-->
     <script src="JavaScript\main.js"></script>
+    <script src="JavaScript\slideshow.js"></script>
 </body>
 
 </html>
