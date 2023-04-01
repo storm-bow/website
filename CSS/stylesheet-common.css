@@ -97,3 +97,7 @@ h1 {
     color: rgb(230, 196, 8);
 }
 
+.about {
+    min-height: 30vh;
+    background-color: rgb(38, 38, 38);
+}

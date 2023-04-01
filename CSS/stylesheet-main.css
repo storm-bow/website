@@ -1,9 +1,17 @@
 #section1{
     width: 100%; 
-    height: 100vh; 
-    background-color: #066163;
-    /*background-image: url(Background.png);
-    background-size: cover; */ 
+    min-height: 100vh; 
+    /*background-color: #066163;*/
+    background-image: url(../media/background.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: cover;
+}
+
+@media screen and (max-width:1060px){
+    #slogan { 
+        font-size: calc(1060 / 100 * 3px) !important;
+    }
 }
 
 #slogan{
@@ -11,16 +19,29 @@
     text-align: center;
     margin: auto;
     padding-top: 20vh;
-    font-size: 4em;
+    font-size: 3vw;
 }
 
 
 #search-bar{
-    min-width: 702px;
     max-width: 1500px;
     font-size: 2em;
     padding-top: 5%;
     margin: auto;
+    opacity: 0.9;
+}
+
+#search-bar select{
+    background-color: white;
+    color: rgba(0,0,0, 0.6);
+}
+#search-bar svg {
+    color:#CDBE78;
+    width: 1em;
+}
+#search-bar button {
+    width: 50%;
+    
 }
 
 #location,#category,#price,#area,#search{
@@ -40,26 +61,29 @@
 
 #section2{
     background-color: #F2F2F2;
-    height: calc(70vh - 60px);
+    min-height: calc(70vh - 60px);
 }
 
 #sec2-title{
     text-align: center;
-    min-width: 702px;
-    margin: 1% auto;
+    margin: auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 /*Slide show start*/
 
 #recommendations{
     border: solid;
-    height: 80%;
-    width: 80%;
+    border-width: 1px;
+    height: 60%;
+    width: 70%;
     margin: auto;
 }
 .carousel {
     margin: auto;
     border: solid;
+    border-width: inherit;
     height: 100%;
 }
 
@@ -90,14 +114,12 @@
 .carousel-control-prev, .carousel-control-next {
     width: 5%;
     background-color: rgba(255, 255, 255, 0);
+    height: 20%;
+    border: none;
+    margin-top: 12%;
+
 }
 /*Slide show end*/
-
-
-#section3{
-    background-color: #383838;
-    height: 30vh;
-}
 
 #sec3-title {
     padding-top: 20px;

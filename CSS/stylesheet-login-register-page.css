@@ -1,10 +1,19 @@
+#form-section {
+    min-height: calc(70vh - 60px);
+    margin-top: 60px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: linear-gradient(180deg, rgba(6,97,99,1) 0%, rgba(17,138,140,1) 76%);
+}
+
 #login-register-form-container {
     border: solid;
     border-width: 2px;
     border-radius: 4px;
-    margin: 10% auto;
+    box-shadow: 1px 3px 6px 1px;
+    margin:auto;
     max-width: 480px;
-    background-color: rgba(169, 169, 169, 0.1);
+    background-color: rgba(248, 245, 245, 0.826);
 }
 .lr-button {
     border: none;
@@ -35,12 +44,12 @@
     display: none;
 }
 .s-button:hover {
-    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
+    box-shadow: 0px 0px 1px 2px rgb(230, 196, 8);
 }
 
 #sl-button:active {
     background-color:  rgb(173, 255, 47, 0.1);
-    box-shadow: 0px 0px 1px 2px rgb(173, 255, 47);
+    box-shadow: 0px 0px 1px 2px rgb(230, 196, 8);
     border: none;
 }
 #sl-button {

@@ -60,15 +60,19 @@
 
         <div class="d-flex" id="search-bar">
 
-            <input type="text" id="location" name="location" placeholder="Περιοχή">
+            <input type="text" id="location" name="location" placeholder=" Location">
             <select name="category" id="category">
-                <option value="Κατοικία">Residence</option>
-                <option value="Επαγγελματικό">Commerce</option>
-                <option value="Γη">Land</option>
+                <option value="residence">Residence</option>
+                <option value="commercial">Commercial</option>
+                <option value="land">Land</option>
             </select>
-            <input type="number" id="price" name="price" placeholder="Τιμή">
-            <input type="number" id="area" name="area" placeholder="Εμβαδόν">
-            <button type="button" id="search">Search</button>
+            <input type="number" id="price" name="price" placeholder=" Min Price &euro;">
+            <input type="number" id="area" name="area" placeholder=" Area (m&sup2);">
+            <button class="btn" id="search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg>
+            </button>
 
         </div>
 
@@ -89,7 +93,7 @@
         <h1 id="sec2-title">Property Recommendations</h1>
 
         <div id="recommendations">
-            <div id="slideshow" class="carousel" data-bs-ride="carousel" >
+            <div id="slideshow" class="carousel slide" data-bs-ride="carousel" >
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="media\ameland-5651866__480.jpg">
@@ -128,7 +132,7 @@
 
     </section>
 
-    <section id="section3">
+    <section class="about" id="section3">
 
         <h1 id="sec3-title">About</h1>
 
