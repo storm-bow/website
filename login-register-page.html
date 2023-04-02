@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="CSS/stylesheet-login-register-page.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="CSS/stylesheet-common.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Organization Name</title>
+    </head>
+    <body>
+        <nav class="container-fluid" id="navigation-bar">
+            <div class="row no-gutters space-nowrap">
+                <div class="col-1">
+                    <div class="menu-items">
+                        <a href="main.html"><img id="logo" src="media/Logo.png"></a>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="menu-items" id="brand-name">Real Estate</div>
+                </div>
+                <div class="col-1">
+                    <div class="menu-items menu-options" ><a href="">FOR SALE</a></div>
+                </div>
+                <div class="col-1">
+                    <div class="menu-items menu-options"><a href="">TO LET</a></div>
+                </div>
+                <div class="col-1">
+                    <div class="menu-items menu-options"><a href="about-us.html">ABOUT US</a></div>
+                </div>
+                <div class="col-1">
+                    <div class="menu-items menu-options" id="entry">
+                        <a href="login-register-page.html" id="login">
+                            <span>LOG</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                                <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                                <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
+                            </svg>
+                            <span>IN</span>
+                        </a>
+                    </div>
+                    <div class="menu-items dropdown" id="list-icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        <div class="dropdown-content">
+                            <a href="">FOR SALE</a>
+                            <a href="">TO LET</a>
+                            <a href="about-us.html">ABOUT US</a>
+                            <a href="login-register-page.html">LOG-IN</a>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </nav>
+        <section id="form-section">
+            <div id="login-register-form-container">
+                <div class="container-fluid" id="lr-switch">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center" id="l-button-container">
+                            <button class="lr-button" id="l-button">Login</button>
+                        </div>
+                        <div class="col d-flex justify-content-center" id="r-button-container">
+                            <button class="lr-button" id="r-button">Register</button>
+                        </div>
+                    </div>
+                </div>
+                <form class="login-register-form" id="login-form">
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" class="form-control" placeholder="ti@eipes.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="********" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="form-control form-control-sm s-button" id="sl-button">
+                    </div>
+    
+                </form>
+                <form class="login-register-form" id="register-form">
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="ti@eipes.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password Repeat</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="form-control form-control-sm s-button" id="sr-button">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="about">
+            
+        </section>
+        <script src="JavaScript/form-change.js"></script>
+    </body>
+</html>
