@@ -74,7 +74,6 @@
 /*Slide show start*/
 
 #recommendations{
-    border: solid;
     border-width: 1px;
     height: 60%;
     width: 70%;
@@ -82,8 +81,6 @@
 }
 .carousel {
     margin: auto;
-    border: solid;
-    border-width: inherit;
     height: 100%;
 }
 
@@ -100,6 +97,11 @@
     border-left: solid;
     border-right: solid;
     border-width: 1px;
+    border-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 1px 1px;
+    margin: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
 
 }
 

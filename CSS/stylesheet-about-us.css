@@ -62,8 +62,15 @@
 
 }
 
-
-
+.cardd img {
+    margin: auto;
+}
+.ceo-data {
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
 .ceo-data p{
     font-size: 1vw;
     margin: 0;
