@@ -1,18 +1,5 @@
-.property-listing-table {
-  border: solid;
-  border-top: none;
-  border-bottom: none;
-  height: 100%;
-  max-width: none;
-  width: 80%;
-  position: absolute;
-  right: 0px;
-}
-.property-listing-table .row {
-  margin-top: 60px;
-}
 .property-listing {
-  padding: 10px;
+  padding:10px;
   height: 300px;
 }
 .listing-content {
@@ -20,14 +7,20 @@
   height: 100%;
 }
 .filters-container {
-  position: absolute;
-  left: 0px;
-  margin-top: 60px;
-  width: 20%;
-  height: 100%;
   text-align: center;
 }
 
 .form-label {
   display: block;
+}
+.property-listing-section {
+  margin-top: 60px;
+  min-height: calc(70vh - 60px);
+}
+.page-changer {
+  text-align: center;
+}
+.listings-page-changer {
+  background-color: inherit;
+  border: none;
 }
