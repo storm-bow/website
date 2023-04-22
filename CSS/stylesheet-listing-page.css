@@ -1,0 +1,25 @@
+#listing-form-container {
+    border: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    margin: 20% auto;
+    max-width: 720px;
+    background-color: rgba(169, 169, 169, 0.1);
+    padding: 2%;
+}
+#listing-form label {
+    white-space: nowrap;
+    min-width: 20%;
+}
+
+#listing-form-container div[class~="row"]{
+    flex-wrap: nowrap;
+}
+
+.type-select, .type-label {
+    width: 49%
+}
+
+.extra {
+    width: 49%;
+}

@@ -1,0 +1,66 @@
+
+#all{
+    margin-top:70px;
+    display: flex;
+    align-items: center;
+    height:100vh;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.filters{
+    border: 5px solid;
+    width:25vw;
+    height:100vh;
+}
+
+p{
+    margin:0px;
+    font-weight: bold;
+}
+
+#filter{
+    margin: 0px;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+#price,#area,#year{
+    margin-top: 20px;
+}
+
+#arrow{
+    flex-grow: 1;
+}
+
+
+#content{
+    flex-grow: 1;
+}
+
+#r-a{
+    height:25px;
+}
+
+#la{
+    display: none;
+    height:25px;
+}
+
+#image{
+    margin:15px;
+    margin-left:50px;
+    height: 200px;
+    width: 200px;
+    border: 1px solid;
+}
+
+.container{
+    height:100vh;
+    width:70vw;
+    border:5px solid;
+    
+}
