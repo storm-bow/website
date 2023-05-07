@@ -1,0 +1,26 @@
+.property-listing {
+  padding:10px;
+  height: 300px;
+}
+.listing-content {
+  border: solid;
+  height: 100%;
+}
+.filters-container {
+  text-align: center;
+}
+
+.form-label {
+  display: block;
+}
+.property-listing-section {
+  margin-top: 60px;
+  min-height: calc(70vh - 60px);
+}
+.page-changer {
+  text-align: center;
+}
+.listings-page-changer {
+  background-color: inherit;
+  border: none;
+}
