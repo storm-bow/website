@@ -7,8 +7,7 @@ router.get("/main", (req,res) => {
 }
 )
 router.get("/about-us", (req,res) =>{
-    console.log(basicinfo)
-    res.render("nothing",{layout: "about-us", creators: basicinfo.creators})
+    res.render("creators",{layout: "about-us", creators: basicinfo.creators})
 })
 
 export {router};

@@ -1,0 +1,23 @@
+{{#each creators}}
+<div class="cardd container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="row">
+                <img src="media\avatar.jpg">
+            </div>
+            <div class="row">
+                <div class="ceo-data">
+                    <p>{{this.name}}</p>
+                    <p>email: {{this.email}}</p>
+                    <p>telephone: {{this.telephone}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <p class="ceo-description">
+                {{this.description}}
+            </p>
+        </div>
+    </div>
+</div>
+{{/each}}

@@ -1,8 +1,7 @@
 import express from 'express'
 import {engine} from 'express-handlebars'
 import {router} from './routing.js'
-//import database from './database-connector.js'
-
+import {database} from './database-connector.js'
 
 const app = express()
 app.use(express.static("static"))
@@ -11,7 +10,7 @@ app.set('view engine','hbs')
 
 app.use("/",router)
 
-app.listen(8080, (err) => {
+app.listen(8070, (err) => {
     if (err) {
         console.log("Something happened")
     }
