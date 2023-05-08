@@ -1,7 +1,7 @@
 import express from 'express'
 import {engine} from 'express-handlebars'
 import {router} from './routing.js'
-import {database} from './database-connector.js'
+import * as database from './database-connector.js'
 
 const app = express()
 app.use(express.static("static"))
