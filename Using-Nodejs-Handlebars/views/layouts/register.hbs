@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{{{body}}}
+<html lang="en">
+    <head>
+        {{>common-header}}
+        <link rel="stylesheet" href="CSS/stylesheet-login-register-page.css">
+        <link rel="stylesheet" href="CSS/register.css">
+    </head>
+    <body>
+        {{>navbar}}
+        <section id="form-section">
+            <div id="login-register-form-container">
+                <div class="container-fluid" id="lr-switch">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center" id="l-button-container">
+                            <button class="lr-button" id="l-button"><a href="login">Login</a></button>
+                        </div>
+                        <div class="col d-flex justify-content-center" id="r-button-container">
+                            <button class="lr-button" id="r-button"><a href="register">Register</a></button>
+                        </div>
+                    </div>
+                </div>
+                <form class="login-register-form" id="register-form" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="first_name" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="last_name" required>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="ti@eipes.com" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password Repeat</label>
+                        <input type="password" class="form-control" name="vpassword" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="form-control form-control-sm s-button" id="sr-button">
+                    </div>
+                </form>
+                {{#each error}}
+                <p class="error">{{this.msg}}</p>
+                {{/each}}
+            </div>
+        </section>
+        {{>about-section}}
+    </body>
+</html>
