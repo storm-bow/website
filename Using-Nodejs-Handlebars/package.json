@@ -17,6 +17,7 @@
     "express-async-handler": "^1.2.0",
     "express-handlebars": "^7.0.7",
     "express-validator": "^7.0.1",
-    "mysql2": "^3.3.1"
+    "mysql2": "^3.3.1",
+    "path": "^0.12.7"
   }
 }

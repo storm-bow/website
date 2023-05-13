@@ -21,7 +21,13 @@ router.get("/register", (req, res) => {
     res.render("nothing", { layout: "register" })
 })
 router.get("/make-listing", (req, res) => {
-    res.render("nothing", { layout: "make-listing-page" })
+    if(req.query.type === "residential"){
+        res.render("rooms",{layout: "make-listing-page", type: "residential"})
+    }
+    else{
+        res.render("nothing",{layout: "make-listing-page", type: "commercial"})
+    }
+
 })
 
 //REGISTER USER
