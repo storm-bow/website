@@ -14,11 +14,59 @@ async function registerUser(connection,first_name,last_name,email,phone,password
     }
     await connection.execute(
         `INSERT INTO US3R (first_name,last_name,email,phone,password)
-         SELECT * FROM (SELECT '${first_name}' AS first_name, '${last_name}' AS last_name, '${email}' AS email, ${phone} AS phone, '${password}' AS password) AS newentry
-         WHERE NOT EXISTS (
-            SELECT email FROM US3R WHERE email = '${email}'
-         ) LIMIT 1`)
+         VALUES ('${first_name}', '${last_name}', '${email}', ${phone}, '${password}')
+         `)
     return ret;
 }
 
-export {showTables, registerUser}
+async function makeListing(connection,property){
+    console.log(property)
+    let date = new Date().toISOString().split('T')[0]
+    let owner = 1;
+    if(property.propertyType == "commercial"){
+        await connection.execute(
+            `INSERT INTO PROPERTY (ownerID,listingType,country,city,street,streetNumber,firstPublished,lastPublished,state,price,area,floor,numberOfFloors,constrYear,bathrooms,comments)
+             VALUES ('${owner}','${property.listingType}','${property.country}','${property.city}',${property.street},${property.streetNumber},'${date}','${date}','in-process',${property.price},${property.area},${property.floor},${property.numberOfFloors},${property.constrYear},${property.bathrooms},'${property.comments}')`
+            )
+        let propertyID = await connection.execute(
+            `SELECT ID from PROPERTY (ID,ownerID)
+             WHERE ownerID = ${owner}
+             ORDER BY 'ID' DESC
+             LIMIT 1`
+            ).results
+        console.log(propertyID)
+        await connection.execute(
+            `INSERT INTO COMMERCIAL (cpropertyID,commercialType)
+             VALUES (${propertyID},${property.commercialType}})`
+            )
+    }
+    if(property.propertyType == "residential"){
+        await connection.execute(
+            `INSERT INTO PROPERTY (ownerID,listingType,country,city,street,streetNumber,firstPublished,lastPublished,state,price,area,floor,numberOfFloors,constrYear,bathrooms,comments)
+             VALUES ('${owner}','${property.listingType}','${property.country}','${property.city}','${property.street}',${property.streetNumber},'${date}','${date}','in-process',${property.price},${property.area},${property.floor},${property.numberOfFloors},${property.constrYear},${property.bathrooms},'${property.comments}')`
+            )
+        
+        let propertyID
+
+        await connection.execute(
+            `SELECT ID 
+             FROM PROPERTY
+             WHERE ownerID = ${owner}
+             ORDER BY ID DESC
+             LIMIT 1`
+            ).then((data) => {
+                console.log(data[0][0].ID)
+                propertyID = data[0][0].ID
+            })
+
+        await connection.execute(
+            `INSERT INTO RESIDENTIAL (rpropertyID,rooms)
+             VALUES (${propertyID},${property.rooms})`
+            )        
+
+       
+    }
+} 
+
+
+export {showTables, registerUser, makeListing}

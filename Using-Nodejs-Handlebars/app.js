@@ -4,6 +4,7 @@ import {router} from './routing.js'
 import bodyParser from 'body-parser';
 import path from "path"
 import { fileURLToPath } from 'url';
+import multer from "multer"
 
 const app = express()
 app.use(express.static("static"))

@@ -4,8 +4,12 @@ import * as dbquery from "./database-queries.js"
 import { connection } from './database-connector.js';
 import { body, validationResult } from "express-validator"
 import asyncHandler from "express-async-handler"
+import bodyParser from 'body-parser';
+import multer from "multer"
 
 const router = express.Router();
+
+const upload = multer({ dest: 'uploads/' })
 
 router.get("/main", (req, res) => {
     res.render("nothing", { layout: "main" })
@@ -25,7 +29,7 @@ router.get("/make-listing", (req, res) => {
         res.render("rooms",{layout: "make-listing-page", type: "residential"})
     }
     else{
-        res.render("nothing",{layout: "make-listing-page", type: "commercial"})
+        res.render("commercialType",{layout: "make-listing-page", type: "commercial"})
     }
 
 })
@@ -82,5 +86,35 @@ router.post(
     }
         
     )
+)
+//MAKE LISTING
+router.post(
+    "/make-listing",
+    body("propertyType").trim().escape(),
+    body("listingType").trim().escape(),
+    body("country").trim().isLength({ min: 1, max:30 }).escape(),
+    body("city").trim().isLength({ min: 1, max:30 }).escape(),
+    body("street").trim().isLength({ min: 1, max:30 }).escape(),
+    body("streetNumber").trim().escape(),
+    body("floor").trim().escape(),
+    body("numberOfFloors").trim().escape(),
+    body("bathrooms").trim().escape(),
+    body("rooms").trim().escape(),
+    body("commercialType").trim().isLength({ min: 1, max:25 }).escape(),
+    body("constrYear").trim().escape(),
+    body("area").trim().escape(),
+    body("price").trim().escape(),
+    body("comments").trim().isLength({ max:200 }).escape(),
+    upload.single("photo"),
+    asyncHandler(async (req,res,next) => {
+        const errors = validationResult(req);
+        console.log(errors)
+        let property = req.body
+        property["photo"]= req.file.path
+        await dbquery.makeListing(connection,property)
+        res.redirect("/make-listing")
+    })
+
+
 )
 export { router };

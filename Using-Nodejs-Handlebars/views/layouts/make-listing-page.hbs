@@ -9,18 +9,18 @@
 <body>
     {{>navbar}}
     <div id="listing-form-container">
-        <form id="listing-form">
+        <form id="listing-form" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label class="type-label">Property type :</label>
-                    <select class="form-select type-select form-control" id="property-type">
-                        <option value="residential" {{#eq type "residential"}}selected{{/eq}}>Residential</option>
-                        <option value="commercial" {{#eq type "commercial"}}selected{{/eq}}>Commercial</option>
+                    <select class="form-select type-select form-control" name="propertyType" id="property-type">
+                        <option value="residential" {{#eq type "residential" }}selected{{/eq}}>Residential</option>
+                        <option value="commercial" {{#eq type "commercial" }}selected{{/eq}}>Commercial</option>
                     </select>
                 </div>
                 <div class="form-group col-sm">
                     <label class="type-label">Listing type :</label>
-                    <select class="form-select type-select form-control" id="listingType">
+                    <select class="form-select type-select form-control" name="listingType" id="listingType">
                         <option value="sale" selected>Sale</option>
                         <option value="rent">Rent</option>
                     </select>
@@ -29,61 +29,69 @@
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label>Country</label>
-                    <input type="text" class="form-control" id="country">
+                    <input type="text" class="form-control" name="country" id="country" required>
                 </div>
                 <div class="form-group col-sm">
                     <label>City</label>
-                    <input type="text" class="form-control" id="city">
+                    <input type="text" class="form-control" name="city" id="city" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label>Street</label>
-                    <input type="text" class="form-control" id="street">
+                    <input type="text" class="form-control" name="street" id="street" required>
                 </div>
                 <div class="form-group col-sm">
                     <label>Number</label>
-                    <input type="text" class="form-control" id="street-number">
+                    <input type="number" class="form-control" min=0 name="streetNumber" id="street-number" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label>Floor</label>
-                    <input type="number" class="form-control" value=0 id="floor">
+                    <input type="number" class="form-control" value=0 name="floor" id="floor" required>
                 </div>
                 <div class="form-group col-sm">
                     <label>Number of Floors</label>
-                    <input type="number" class="form-control" id="numberOfFloors" value=1>
+                    <input type="number" class="form-control" min=0 name="numberOfFloors" id="numberOfFloors" value=1 required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label>Bathrooms</label>
-                    <input type="number" class="form-control" id="bathrooms">
+                    <input type="number" class="form-control" min=0 name="bathrooms" id="bathrooms" required>
                 </div>
-                    {{{body}}}
+                {{{body}}}
             </div>
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label>Construction Year</label>
-                    <input type="number" min="1900" max="2099" step="1" value="1995" class="form-control"
-                        id="constrYear">
+                    <input type="number" min="1900" max="2099" value="1995" class="form-control"
+                        name="constrYear" id="constrYear" required>
                 </div>
                 <div class="form-group col-sm">
                     <label>Area ( &#x33A1 )</label>
-                    <input type="number" class="form-control" id="area" value=50>
+                    <input type="number" class="form-control" min=0 name="area" id="area" value=50 required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm">
                     <label>Price ( &#8364 )</label>
-                    <input type="number" min=0 class="form-control" id="price">
+                    <input type="number" min=0 class="form-control" name="price" id="price" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label>Upload a photo</label>
+                    <input type="file" accept="image/png, image/jpg, image/jpeg" name="photo" id="photo" required>
                 </div>
             </div>
             <div class="form-group" id="description-container">
                 <label>Description</label>
-                <textarea class="form-control" name="property-description" id="property-description"
-                    rows="5"></textarea>
+                <textarea class="form-control" name="comments" id="property-description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control form-control-sm s-button" id="sr-button">
             </div>
         </form>
     </div>
