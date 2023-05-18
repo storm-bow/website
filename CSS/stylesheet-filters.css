@@ -38,6 +38,7 @@ p{
 
 
 #content{
+    box-sizing: content-box;
     flex-grow: 1;
 }
 
@@ -45,7 +46,7 @@ p{
     height:25px;
 }
 
-#la{
+#l-a{
     display: none;
     height:25px;
 }
@@ -59,8 +60,7 @@ p{
 }
 
 .container{
-    height:100vh;
-    width:70vw;
-    border:5px solid;
-    
+    height:100%;
+    width:90vw;
+    border:5px solid;   
 }

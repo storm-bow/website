@@ -25,5 +25,5 @@ section1.addEventListener('mousemove',(e) => {
 })
 
 function searchFunction(){
-    window.location.replace("filters.html")
+    window.location.replace("for-sale.html")
 }
