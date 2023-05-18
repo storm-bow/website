@@ -23,7 +23,3 @@ section1.addEventListener('mousemove',(e) => {
 
     }
 })
-
-function searchFunction(){
-    window.location.replace("for-sale.html")
-}
