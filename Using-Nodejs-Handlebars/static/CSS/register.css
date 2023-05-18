@@ -1,0 +1,14 @@
+#r-button-container {
+    border-left: solid;
+    border-width: 2px;
+    border-top-right-radius: 6px;
+    background-color: white;
+}
+#l-button-container {
+    border-width: 2px;
+    border-bottom: solid ;
+    border-top-left-radius: 6px;
+}
+#l-button {
+    background-color: rgba(169, 169, 169, 0);
+}

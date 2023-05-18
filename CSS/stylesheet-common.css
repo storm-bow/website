@@ -18,6 +18,7 @@ p {
 }
 h1 {
     font-size: 3vw;
+    padding-top: 10%;
 }
 @media screen and (max-width: 780px){
     p { 
@@ -25,6 +26,12 @@ h1 {
     }
     h1 {
         font-size: 23.4px;
+    }
+
+}
+@media screen and (min-width: 1300px){
+    p { 
+        font-size: 26px;
     }
 
 }
@@ -61,8 +68,7 @@ h1 {
     width: 200px;
     text-align: center;
     color: white;
-    background-color: #383838;
-    background: linear-gradient(180deg, rgba(56,56,56,1) 0%, rgba(85,83,83,1) 44%, rgba(56,56,56,1) 100%);
+    background-color: rgb(38, 38, 38);
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
 }
   .dropdown:hover .dropdown-content {

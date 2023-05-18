@@ -1,0 +1,31 @@
+#form-section {
+    background-image: url("../media/make-listing-background.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: cover;
+    width: 100%; 
+    min-height: 100vh; 
+    padding-top: 10vh;
+}
+#listing-form-container {
+    border: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    margin: auto;
+    max-width: 720px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2%;
+}
+#listing-form label {
+    white-space: nowrap;
+    min-width: 20%;
+}
+
+#listing-form-container div[class~="row"]{
+    flex-wrap: nowrap;
+}
+
+.type-select, .type-label {
+    width: 49%
+}
+

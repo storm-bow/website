@@ -59,6 +59,20 @@
         <div id="listing-form-container">
             <form id="listing-form">
                 <div class="form-row">
+
+                    <div class="form-group col-sm">
+                        <label class="type-label">Property type :</label>
+                        <select class="form-select type-select form-control" id="property-type" onchange="">
+                            <option value="residential" selected>Residential</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm">
+                        <label class="type-label">Listing type :</label>
+                        <select class="form-select type-select form-control" id="listingType" onchange="">
+                            <option value="sale" selected>Sale</option>
+                            <option value="rent">Rent</option>
+
                     <div class="form-group col">
                         <label class="type-label">Property type :</label>
                         <select class="form-select type-select" id="property-type" onchange="addExtra()">
@@ -94,12 +108,49 @@
                         <input type="text" class="form-control" id="street-number">
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-sm">
+                        <label>Floor</label>
+                        <input type="number" class="form-control" value=0 id="floor">
+                    </div>
+                    <div class="form-group col-sm">
+                        <label>Number of Floors</label>
+                        <input type="number" class="form-control" id="numberOfFloors" value=1>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label>Bathrooms</label>
+                        <input type="number" class="form-control" id="bathrooms">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm">
+                        <label>Construction Year</label>
+                        <input type="number" min="1900" max="2099" step="1" value="1995" class="form-control" id="constrYear">
+                    </div>
+                    <div class="form-group col-sm">
+                        <label>Area ( &#x33A1 )</label>
+                        <input type="number" class="form-control" id="area" value=50>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm">
+                        <label>Price ( &#8364 )</label>
+                        <input type="number" min=0 class="form-control" id="price">
+                    </div>
+                </div>
+
                 <!--Insert html from script -->
+
                 <div class="form-group" id="description-container">
                     <label>Description</label>
                     <textarea class="form-control" name="property-description" id="property-description" rows="5"></textarea>
                 </div>
+
+
                 <script src="JavaScript/add-extra.js"></script>
+
             </form>
         </div>
     </body>
