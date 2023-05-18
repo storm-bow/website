@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="CSS/register.css">
     </head>
     <body>
-        {{>navbar}}
+        {{>(whichNavbar user)}}
         <section id="form-section">
             <div id="login-register-form-container">
                 <div class="container-fluid" id="lr-switch">
@@ -48,7 +48,7 @@
                         <input type="password" class="form-control" name="vpassword" required>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="form-control form-control-sm s-button" id="sr-button">
+                        <input type="submit" class="form-control form-control-sm s-button" value="REGISTER" id="sr-button">
                     </div>
                 </form>
                 {{#each error}}

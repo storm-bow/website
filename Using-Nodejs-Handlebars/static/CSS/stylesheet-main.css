@@ -12,7 +12,11 @@
     #slogan { 
         font-size: calc(1060 / 100 * 3px) !important;
     }
+    .carousel-item {
+        flex: 0 0 100% !important;
+    }
 }
+
 
 #slogan{
     color: #CDBE78;
@@ -60,6 +64,9 @@
     color: rgba(255, 255, 255, 0.2);
 }
 
+#change-section-anchor a{
+    color: inherit
+}
 #section2{
     background-color: #F2F2F2;
     min-height: calc(70vh - 60px);
