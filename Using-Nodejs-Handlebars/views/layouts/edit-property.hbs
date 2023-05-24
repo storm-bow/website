@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>common-header}}
+    <link rel="stylesheet" href="CSS/edit-property.css">
+
+</head>
+
+<body>
+    {{>(whichNavbar user)}}
+    <section id="form-section">
+        <h3 id="edit-title">Edit property ID = {{property.ID}}</h3>
+        <form id="edit-form" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label>Price ( &#8364 )</label>
+                    <input class="form-control" name="price" id="price" value="{{property.price}}">
+                </div>
+            </div>
+            <div class="form-group" id="description-container">
+                <label>Description</label>
+                <textarea class="form-control" name="comments" id="property-description" rows="5">{{property.comments}}</textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label>Change photo</label>
+                    <input type="file" accept="image/png, image/jpg, image/jpeg" name="photo" id="photo">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control form-control-sm s-button" value="UPDATE" id="update-button">
+            </div>
+        </form>
+    </section>
+
+    {{>about-section}}
+
+</body>
+
+</html>

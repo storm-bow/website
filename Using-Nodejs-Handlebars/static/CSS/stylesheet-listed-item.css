@@ -1,0 +1,89 @@
+.listed-item {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  max-width: 966px;
+}
+
+.details {
+  margin: auto;
+  max-width: 966px;
+  margin-top: 20px;
+}
+
+.all-info {
+  margin-top: 60px;
+  padding: 20px;
+}
+
+#photo {
+  border: solid black;
+  border-radius: 20px;
+  max-width: 100%;
+}
+
+.basic-info {
+  padding: 0;
+
+}
+
+#owner-info {
+  display: none;
+}
+
+#show-owner {
+  background-color: white;
+  color: rgb(230, 196, 8);
+  font-weight: bold;
+  margin: auto;
+  width: 100px;
+}
+
+#show-owner:hover {
+  box-shadow: 0px 0px 1px 2px rgb(230, 196, 8);
+}
+
+button {
+  margin-left: 150px;
+}
+
+.description {
+  font-style: italic;
+}
+
+.extra-details {
+  text-align: center;
+}
+
+.extra-details>div {
+  border: 1px solid;
+
+}
+
+.extra-details>div>div:nth-child(2n+1) {
+  background-color: lightslategray;
+
+}
+
+.listing-control {
+  margin: auto;
+  max-width: 966px;
+}
+
+.control-button {
+  margin: auto;
+  width: 200px;
+  color: white;
+}
+
+#delete-button {
+  background-color: rgb(205, 0, 0);
+}
+
+#approve-button {
+  background-color: rgb(101, 222, 101);
+}
+
+#edit-button {
+  background-color: rgb(14, 33, 116);
+}

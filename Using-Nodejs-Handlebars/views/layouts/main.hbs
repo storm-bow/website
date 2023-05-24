@@ -7,31 +7,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 </head>
-{{{body}}}
+
 <body>
     {{>(whichNavbar user)}}
     <section id="section1">
 
         <p id="slogan">Find the place you belong...</p>
 
-        <div class="d-flex" id="search-bar">
-
-            <input type="text" id="location" name="location" placeholder=" Location">
-            <select name="category" id="category">
-                <option value="residence">Residence</option>
-                <option value="commercial">Commercial</option>
-            </select>
-            <input type="number" id="price" name="price" placeholder=" Min Price &euro;">
-            <input type="number" id="area" name="area" placeholder=" Area (m&sup2);">
-            <button class="btn" id="search">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-            </button>
-
-        </div>
+        <form class="container-fluid" method="post" action="listings" id="search-bar">
+            <div class="row justify-content-center">
+                <div class="col-md-2 search-fields">
+                    <input class="form-control" type="text" id="city" name="city" placeholder="City">
+                </div>
+                <div class="col-md-2 search-fields">
+                    <select  class="form-control" name="propertyType" id="propertyType">
+                        <option value="residential">residence</option>
+                        <option value="garage">garage</option>
+                        <option value="garage">office</option>
+                    </select>
+                </div>
+                <div class="col-md-2 search-fields">
+                    <input class="form-control" type="number" id="min-price" name="minPrice" min=0 placeholder=" Min Price &#8364">
+                </div>
+                <div class="col-md-2 search-fields">
+                    <input class="form-control" type="number" id="min-area" name="minArea" min=0 placeholder=" Min Area (m&sup2)">
+                </div>
+                <div class="col-md-2 search-fields">
+                    <button class="btn" id="search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </form>
 
         <div id="change-section-anchor">
             <a href="#section2">
@@ -50,45 +61,7 @@
     <section id="section2">
 
         <h1 id="sec2-title">Property Recommendations</h1>
-
-        <div id="recommendations">
-            <div id="slideshow" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="media\ameland-5651866__480.jpg">
-                        <p>Property 1</p>
-                        <p>Some basic informaton</p>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="media\cottage-2955582__480.jpg">
-                        <p>Property 2</p>
-                        <p>Some basic informaton</p>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="media\house-1477041__480.jpg">
-                        <p>Property 3</p>
-                        <p>Some basic informaton</p>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="media\house-1836070__480.jpg">
-                        <p>Property 4</p>
-                        <p>Some basic informaton</p>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="media\residence-2219972__480.jpg">
-                        <p>Property 5</p>
-                        <p>Some basic informaton</p>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-            </div>
-        </div>
-
+        {{{body}}}
     </section>
 
     {{>about-section}}

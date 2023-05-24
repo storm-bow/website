@@ -1,0 +1,37 @@
+#form-section {
+    min-height: calc(70vh - 60px);
+    margin-top: 60px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: linear-gradient(180deg, rgba(6,97,99,1) 0%, rgba(17,138,140,1) 76%);
+}
+#settings-container {
+    border: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    box-shadow: 1px 3px 6px 1px;
+    margin:auto;
+    max-width: 600px;
+    background-color: rgba(248, 245, 245, 0.826);
+}
+#update-profile-form {
+    padding: 2% 5%;
+    background-color: white;
+}
+
+#old-password-container {
+    color: rgb(0, 255, 64);
+}
+
+#logout-col {
+    background-color: rgba(248, 245, 245, 0.826);
+}
+
+#logout-button {
+    color: white;
+    background-color: rgb(221, 9, 9);
+}
+
+#logout-container {
+    height: 100%;
+}

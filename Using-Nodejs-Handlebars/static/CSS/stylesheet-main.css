@@ -35,6 +35,13 @@
     opacity: 0.9;
 }
 
+.search-fields {
+    padding: 0px ;
+}
+  
+.search-fields input{
+    font-size: 1em;
+}
 #search-bar select{
     background-color: white;
     color: rgba(0,0,0, 0.6);
@@ -44,17 +51,15 @@
     width: 1em;
 }
 #search-bar button {
-    width: 50%;
+    width: 100%;
     background-color: rgba(0,0,0, 0.6);
+    margin: 0;
     
 }
 
-#location,#category,#price,#area,#search{
-    width: 90%;
+#city,#propertyType,#minPrice,#minArea,#search{
     font-size: 1em;
-    flex-grow: 1;
 }
-
 
 #change-section-anchor {
     display: none;
@@ -100,7 +105,6 @@
 .carousel-item {
     display: block;
     position: relative;
-    margin-right: 0;
     flex: 0 0 34%;
     border-left: solid;
     border-right: solid;
@@ -108,17 +112,17 @@
     border-color: rgb(0, 0, 0);
     box-shadow: 0px 0px 1px 1px;
     margin: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding: 6px;
 
 }
 
 .carousel-item img {
     height: 70%;
-
+    width: 100%;
 }
+
 .carousel-item p {
-    margin: 0;
+    margin: 0px;
 }
 
 .carousel-control-prev, .carousel-control-next {
