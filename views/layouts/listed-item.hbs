@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>common-header}}
+    <link rel="stylesheet" href="CSS/stylesheet-listed-item.css">
+</head>
+
+<body>
+    {{>(whichNavbar user)}}
+
+    <section class="all-info">
+        <div class="listed-item">
+            <div>
+                <img src="{{property.photo}}" id="photo" alt="House Photos">
+            </div>
+        </div>
+        <div class="details">
+            <div class="basic-info container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        {{#if property.commercialType}}
+                        <p><b>{{property.commercialType}} for {{property.listingType}}</b></p>
+                        {{else}}
+                        <p><b>Residence for {{property.listingType}}</b></p>
+                        {{/if}}
+                        <p> Address: {{property.street}} {{property.streetNumber}}, {{property.city}}</p>
+                        <p> Price: <b>{{property.price}} &#8364</b></p>
+                    </div>
+                    <div class="col-6">
+                        <button id="show-owner" type="button">owner</button>
+                        <div id="owner-info">
+                            <p>{{owner.first_name}} {{owner.last_name}}</p>
+                            <p>Phone: {{owner.phone}}</p>
+                            <p>Email: {{owner.email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p><b>Description</b></p>
+            <p class="description">{{property.comments}}</p>
+            <p><b>Characteristics</b></p>
+            {{body}}
+            <div class="extra-details container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <p>Area</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.area}} &#x33A1</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Floor</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.floor}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Number of Floors</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.numberOfFloors}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Bathrooms</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.bathrooms}}</p>
+                    </div>
+                </div>
+                {{#if property.rooms}}
+                <div class="row">
+                    <div class="col-6">
+                        <p>Rooms</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.rooms}}</p>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="row">
+                    <div class="col-6">
+                        <p>Construction Year</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.constrYear}}</p>
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col-6">
+                        <p>Published</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.firstPublished}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Last Updated</p>
+                    </div>
+                    <div class="col-6">
+                        <p>{{property.lastPublished}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="listing-control">
+            {{#if user.adminRights}}
+            <a href="listed-item/approve?id={{property.ID}}">
+                <button class="control-button" id="approve-button">Approve</button>
+            </a>
+            <a href="listed-item/delete?id={{property.ID}}">
+                <button class="control-button" id="delete-button">Delete</button>
+            </a>
+            {{/if}}
+            {{#eq user.email owner.email}}
+            {{#eq user.adminRights 0}}
+            <a href="listed-item/delete?id={{property.ID}}">
+                <button class="control-button" id="delete-button">Delete</button>
+            </a>
+            {{/eq}}
+            <a href="/edit-listing?id={{property.ID}}">
+                <button class="control-button" id="edit-button">Edit</button>
+            </a>
+            {{/eq}}
+        </div>
+
+    </section>
+    {{>about-section}}
+    <script src="JavaScript\listed-item.js"></script>
+</body>
+
+</html>

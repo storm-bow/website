@@ -1,0 +1,21 @@
+{{#each properties}}
+<div class="col-md-6 col-lg-4 col-sm-12 property-listing">
+    <div class="listing-content">
+        <a class="link" href="listed-item?id={{this.ID}}">
+            <img class="listing-image" src="{{this.photo}}">
+            <ul class="container-fluid listing-info"{{#eq this.state "in-process"}}style="background-color:rgba(250,0,0,0.6)"{{/eq}}>
+                <div class="row">
+                    <div class="col-6">
+                        <li>For {{this.listingType}}</li>
+                        <li>Country: {{this.country}}</li>
+                    </div>
+                    <div class="col-6">
+                        <li>City: {{this.city}}</li>
+                        <li>Price: {{this.price}}</li>
+                    </div>
+                </div>
+            </ul>
+        </a>
+    </div>
+</div>
+{{/each}}

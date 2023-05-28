@@ -1,0 +1,152 @@
+<html lang="en">
+
+<head>
+    {{>common-header}}
+    <link rel="stylesheet" href="CSS/stylesheet-listings.css">
+</head>
+
+<body>
+    {{>(whichNavbar user)}}
+    <section class="property-listing-section">
+        <div class="FiltersPopUp">
+            <form class="filters-container" method="post">
+                <ul class="filters list-group">
+                    <li class="list-group-item">
+                        <p>Listing Type</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="listingType" value="sale"
+                                id="sale-option">
+                            <label class="form-check-label" for="sale-option">Sale</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="listingType" value="rent"
+                                id="rent-option">
+                            <label class="form-check-label" for="rent-option">Rent</label>
+                        </div>
+
+                    </li>
+                    {{#eq user.adminRights 1}}
+                    <li class="list-group-item">
+                        <p>State</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="state" value="in-process"
+                                id="not-approved">
+                            <label class="form-check-label" for="not-approved">Not-Approved</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="state" value="approved"
+                                id="approved">
+                            <label class="form-check-label" for="approved">Approved</label>
+                        </div>
+
+                    </li>                    
+                    {{/eq}}
+                    <li class="list-group-item">
+                        <p>Price</p>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label" for="max-price">max</label>
+                                    <input type="number" class="form-control" id="max-price" name="maxPrice">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="min-price">min</label>
+                                    <input type="number" class="form-control" min=0 id="min-price" value="0" name="minPrice">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </li>
+                    <li class="list-group-item">
+                        <p>Property Type</p>
+                        <select class="form-select form-control" name="propertyType" id="propertyType">
+                            <option>all</option>
+                            <option>residential</option>
+                            <option>office</option>
+                            <option>garage</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <p>Place</p>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label" for="country">Country</label>
+                                    <select id="country" name="country" class="form-select form-control">
+                                        <option value="all" !selected>all</option>
+                                        {{>countries-dropdown}}
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="city">City</label>
+                                    <input class="form-control" id="city" name="city" value="all">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <p>Area &#x33A1</p>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label" for="max-area">max</label>
+                                    <input type="number" class="form-control" id="max-area" name="maxArea">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="min-area">min</label>
+                                    <input type="number" class="form-control" min=0 id="min-area" value="0" name="minArea">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <input type="submit" class="form-control form-control-sm s-button" id="filter-submit"
+                            value="FILTER">
+                    </li>
+                </ul>
+
+            </form>
+        </div>
+        <div>
+            <div class="filter-button-container filter-show">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-funnel filter-button" viewBox="0 0 16 16">
+                    <path
+                        d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z" />
+                </svg>
+            </div>
+            <div class="filter-button-container filter-hide">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-funnel filter-button" viewBox="0 0 16 16">
+                    <path
+                        d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z" />
+                </svg>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="listings-container row">
+                <div class="col-12">
+                    <div class="property-listing-table container-fluid">
+                        <div class="row">
+                            {{{body}}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page-changer-container">
+            <button class="page-changer-buttons" id="prev-page">PREV</button>
+            <button class="page-changer-buttons" id="next-page">NEXT</button>
+        </div>
+        
+    </section>
+
+    {{>about-section}}
+
+    <script src="JavaScript/listings.js"></script>
+    <script src="JavaScript/open-filters.js"></script>
+
+</body>
+
+</html>

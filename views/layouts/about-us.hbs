@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{>common-header}}
+        <link rel="stylesheet" href="CSS/stylesheet-about-us.css">
+
+
+    </head>
+    <body>
+        {{>(whichNavbar user)}}
+        <section id="information">
+            <div id="company-intro">
+                <h1>Want to know more about our team ?</h1>
+                <p>
+                    Our dream is to provide to each individual the 
+                    ideal property based on his/her true needs.
+                </p> 
+                <p>
+                    With that in mind, in 2023 we decided to start our company
+                    &#60;Organization Name&#62;.
+                </p>
+            </div>
+            <h1 id="card-container-title">Dream Team</h1>
+            <div class="card-container">
+                {{{body}}}
+            </div>
+        </section>
+
+        {{>about-section}}
+
+    </body>
+</html>

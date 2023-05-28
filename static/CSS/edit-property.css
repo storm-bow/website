@@ -1,0 +1,20 @@
+#form-section{
+    min-height: calc(70vh - 60px);
+    margin-top: 60px;
+    padding-top: 80px;
+    background: linear-gradient(180deg, rgba(6,97,99,1) 0%, rgba(17,138,140,1) 76%);
+}
+
+
+#edit-form{
+    max-width: 60%;
+    padding: 20px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+#edit-title{
+    text-align: center;
+    color: aliceblue;
+    margin: 10px;
+}

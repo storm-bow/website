@@ -1,0 +1,38 @@
+<nav class="container-fluid" id="navigation-bar">
+    <div class="row no-gutters space-nowrap">
+        <div class="col-8">
+            <div class="menu-items" id="logo-container">
+                <a href="main"><img id="logo" src="media/Logo.png"></a>
+            </div>
+            <div class="menu-items" id="brand-name">Real Estate</div>
+        </div>
+        <div class="col-1">
+            <div class="menu-items menu-options"><a class="link" href="make-listing">MAKE LISTING</a></div>
+        </div>
+        <div class="col-1">
+            <div class="menu-items menu-options"><a class="link" href="listings">LISTINGS</a></div>
+        </div>
+        <div class="col-1">
+            <div class="menu-items menu-options"><a class="link" href="about-us">ABOUT US</a></div>
+        </div>
+        <div class="col-1">
+            <div class="menu-items menu-options" id="profile">
+                <a class="link" href="profile">{{user.first_name}}</a>
+            </div>
+            <div class="menu-items dropdown" id="list-icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                <div class="dropdown-content">
+                    <a class="link" href="profile">PROFILE</a>
+                    <a class="link" href="make-listing">MAKE LISTING</a>
+                    <a class="link" href="listings">LISTINGS</a>
+                    <a class="link" href="about-us">ABOUT US</a>
+                    <a class="link" href="logout">LOG-OUT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
