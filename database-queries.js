@@ -3,14 +3,16 @@ import { connection } from "./database-connector.js";
 
 async function registerUser(connection, first_name, last_name, email, phone, password) {
     let ret = true;
+    console.log(email)
     let check = await connection.execute(`SELECT email FROM US3R WHERE email = '${email}'`);
     if (check[0].length !== 0) {
         ret = false
+    } else {
+        await connection.execute(
+            `INSERT INTO US3R (first_name,last_name,email,phone,password)
+             VALUES ('${first_name}', '${last_name}', '${email}', ${phone}, '${password}')
+             `)
     }
-    await connection.execute(
-        `INSERT INTO US3R (first_name,last_name,email,phone,password)
-         VALUES ('${first_name}', '${last_name}', '${email}', ${phone}, '${password}')
-         `)
     return ret;
 }
 
@@ -22,12 +24,23 @@ async function updateUser(connection, first_name, last_name, old_email, email, p
             ret = false
         }
     }
+    else{
+        if(password==''){
+            await connection.execute(
+                `UPDATE US3R
+                 SET first_name = '${first_name}', last_name = '${last_name}', email = '${email}', phone=${phone}
+                 WHERE email = '${old_email}'
+                 `)
+        }
+        else{
+            await connection.execute(
+                `UPDATE US3R
+                 SET first_name = '${first_name}', last_name = '${last_name}', email = '${email}', phone=${phone}, password='${password}'
+                 WHERE email = '${old_email}'
+                 `)
+        }
+    }
 
-    await connection.execute(
-        `UPDATE US3R
-         SET first_name = '${first_name}', last_name = '${last_name}', email = '${email}', phone=${phone}, password='${password}'
-         WHERE email = '${old_email}'
-         `)
     return ret;
 }
 
@@ -107,12 +120,26 @@ async function getUser(connection, email) {
     return response[0][0]
 }
 
-async function getProperties(connection) {
+async function getAllProperties(connection,index) {
     let response = await connection.execute(
         `SELECT *
          FROM PROPERTY
+         LIMIT ${9*index},${9*index+9}
          `
     )
+    return response[0]
+}
+
+async function getProperties(connection,index) {
+    
+    let response = await connection.execute(
+        `SELECT *
+         FROM PROPERTY
+         WHERE state = "approved"
+         LIMIT ${6*index},${6*index+6}
+         `
+    )
+    
     return response[0]
 }
 
@@ -120,6 +147,7 @@ async function getRecommendations(connection){
     let response = await connection.execute(
         `SELECT *
          FROM PROPERTY
+         WHERE state = "approved"
          ORDER BY firstPublished DESC
          LIMIT 8
          `       
@@ -198,7 +226,7 @@ async function updateListing(connection, updateData, propertyID) {
     if (updateData.photo) {
         await connection.execute(
             `UPDATE PROPERTY
-             SET price = ${updateData.price}, comments = '${updateData.comments}', photo = '${updateData.photo}, lastPublished = '${date}'
+             SET price = ${updateData.price}, comments = '${updateData.comments}', photo = '${updateData.photo}', lastPublished = '${date}'
              WHERE ID = ${propertyID}
             `
         )
@@ -214,7 +242,7 @@ async function updateListing(connection, updateData, propertyID) {
     }
 
 }
-async function getPropertiesByQuery(connection, filters) {
+async function getPropertiesByQuery(connection, filters, adminRights = 0,index=0) {
     let rules
     let response
     if(filters.minPrice){
@@ -223,7 +251,9 @@ async function getPropertiesByQuery(connection, filters) {
     else{
         rules = `price >= 0 `
     }
-
+    if(adminRights != 1){
+        rules =  rules + `AND state = "approved"`
+    }
     if (filters.maxPrice) {
         rules = rules + `AND price <= ${filters.maxPrice} `
     }
@@ -241,6 +271,9 @@ async function getPropertiesByQuery(connection, filters) {
     
     if (filters.listingType) {
         rules = rules + `AND listingType = '${filters.listingType}' `
+    }
+    if (filters.state){
+        rules = rules + `AND state = '${filters.state}'`
     }
     if (filters.propertyType) {
         if (filters.propertyType == 'residential') {
@@ -268,9 +301,12 @@ async function getPropertiesByQuery(connection, filters) {
         `SELECT *
          FROM PROPERTY
          WHERE ${rules}
+         LIMIT ${9*index},${9*index+9}
         `
     )
 
     return response[0]
 }
-export { registerUser, makeListing, checkUser, getUser, getProperties, getProperty, getOwnerInfo, approveListing, deleteListing, updateListing, getPropertiesByQuery, getRecommendations, updateUser }
+
+
+export { registerUser, makeListing, checkUser, getUser, getProperties, getAllProperties, getProperty, getOwnerInfo, approveListing, deleteListing, updateListing, getPropertiesByQuery, getRecommendations, updateUser }

@@ -14,6 +14,10 @@ const router = express.Router();
 
 const upload = multer({ dest: 'static/uploads/' })
 
+router.get("/", (req,res) => {
+    res.redirect("main")
+})
+
 router.get("/main", asyncHandler(async (req, res) => {
     let recommendations = await dbquery.getRecommendations(connection);
     if (req.session.authenticatedUser) {
@@ -53,10 +57,9 @@ router.get("/register", (req, res) => {
 router.get("/profile", (req, res) => {
     if (req.session.authenticatedUser) {
         res.render("nothing", { layout: "profile", user: req.session.authenticatedUser })
-        console.log(req.session.authenticatedUser)
     }
     else {
-        res.render("nothing", { layout: "profile" })
+        res.redirect("/main")
     }
 })
 router.get("/make-listing", (req, res) => {
@@ -80,11 +83,22 @@ router.get("/make-listing", (req, res) => {
 })
 
 router.get("/listings", asyncHandler(async (req, res) => {
-    let properties = await dbquery.getProperties(connection);
+    let properties;
+    let index = 0;
+    if(req.query.index){
+        index = req.query.index;
+    }
     if (req.session.authenticatedUser) {
+        if(req.session.authenticatedUser.adminRights == 1){
+            properties = await dbquery.getAllProperties(connection,index);
+        }
+        else{
+            properties = await dbquery.getProperties(connection,index);
+        }
         res.render("properties", { layout: "listings", properties: properties, user: req.session.authenticatedUser })
     }
     else {
+        properties = await dbquery.getProperties(connection,index);
         res.render("properties", { layout: "listings", properties: properties })
     }
 }))
@@ -318,11 +332,17 @@ router.post(
     body("listing-type"),
     asyncHandler(async (req, res) => {
         let filters = req.body
-        let properties = await dbquery.getPropertiesByQuery(connection, filters);
+        let properties
+        let index = 0;
+        if(req.query.index){
+            index = req.query.index;
+        }
         if (req.session.authenticatedUser) {
+            properties = await dbquery.getPropertiesByQuery(connection, filters, req.session.authenticatedUser.adminRights, index);
             res.render("properties", { layout: "listings", properties: properties, user: req.session.authenticatedUser })
         }
         else {
+            properties = await dbquery.getPropertiesByQuery(connection, filters, index = index);
             res.render("properties", { layout: "listings", properties: properties })
         }
     }))
@@ -335,13 +355,13 @@ router.post(
     body("last_name").trim().isLength({ min: 1 }).escape(),
     body("email").trim().escape(),
     body("phone").trim().isLength({ min: 10, max: 10 }).escape().withMessage("Error: phone number should be 10 numbers"),
-    body("password").trim().isLength({ min: 8 }).escape().withMessage("Error: password must be at least 8 characters"),
-    body("vpassword").trim().isLength({ min: 8, max: 80 }).escape(),
+    body("password").trim().escape(),
+    body("vpassword").trim().escape(),
     body("opassword").trim().escape(),
     asyncHandler(async (req, res, next) => {
         // Extract the validation errors from a request.
         const errors = validationResult(req);
-
+        console.log(req.body)
         if (!errors.isEmpty()) {
             // There are errors. Render form again with sanitized values/errors messages.
             res.render("nothing", {
@@ -349,26 +369,26 @@ router.post(
                 user: req.session.authenticatedUser,
                 error: errors.array()
             });
-            return;
+            
         } else {
             let user = await dbquery.getUser(connection, req.session.authenticatedUser.email)
             let result = await bcrypt.compare(req.body.opassword, user.password);
             if(result){
                 if (req.body.password != req.body.vpassword) {
-                    res.render("nothing", { layout: "profile", error: [{ msg: "Error: New passwords don't match" }] })
+                    res.render("nothing", { layout: "profile", user: req.session.authenticatedUser, error: [{ msg: "Error: New passwords don't match" }] })
     
                 }
                 else {
-                    req.body.password = bcrypt.hashSync(req.body.opassword, 10)
+                    if(req.body.password != '' && req.body.password.length()<8){
+                        res.render("nothing", { layout: "profile", user: req.session.authenticatedUser, error: [{ msg: "Error: New password should be at least 8 digits." }] })
+                    }
+                    req.body.password = bcrypt.hashSync(req.body.password, 10)
                     let newEntry = await dbquery.updateUser(connection, req.body.first_name, req.body.last_name,req.session.authenticatedUser.email, req.body.email, req.body.phone, req.body.password)
                     if (newEntry === false) {
-                        res.render("nothing", { layout: "profile", error: [{ msg: "Error: this email is already in use." }] })
+                        res.render("nothing", { layout: "profile", user: req.session.authenticatedUser, error: [{ msg: "Error: this email is already in use." }] })
                     }
                     else {
                         // Data from form is valid.
-                        // Save data.
-                        //await author.save();
-                        // Redirect to completion page
                         res.redirect("/profile");
                     }
     

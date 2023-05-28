@@ -17,12 +17,13 @@
 .listing-info {
   display: block;
   position: absolute;
-  bottom: 0px;
+  bottom: 12px;
   margin: 0px;
-  width: 100%;
+  width: calc(100% - 24px);
   height: 25%;
   background-color: rgba(255, 255, 255,0.6);
   padding-left: 20px;
+  border: solid;
   font-weight: bold;
 }
 
@@ -85,12 +86,18 @@
   min-height: calc(70vh - 60px);
 }
 
-.page-changer {
-  text-align: center;
+#page-changer-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-.listings-page-changer {
-  background-color: inherit;
-  border: none;
+.page-changer-buttons {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255,0.6);
 }
+
 
 

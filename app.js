@@ -53,7 +53,7 @@ app.use(bodyParser.json())
 
 app.use("/",router)
 
-app.listen(8070, (err) => {
+app.listen(process.env.APP_PORT, (err) => {
     if (err) {
         console.log("Something happened")
     }

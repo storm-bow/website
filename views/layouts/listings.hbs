@@ -25,7 +25,22 @@
                         </div>
 
                     </li>
+                    {{#eq user.adminRights 1}}
+                    <li class="list-group-item">
+                        <p>State</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="state" value="in-process"
+                                id="not-approved">
+                            <label class="form-check-label" for="not-approved">Not-Approved</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="state" value="approved"
+                                id="approved">
+                            <label class="form-check-label" for="approved">Approved</label>
+                        </div>
 
+                    </li>                    
+                    {{/eq}}
                     <li class="list-group-item">
                         <p>Price</p>
                         <div class="container-fluid">
@@ -58,7 +73,10 @@
                             <div class="row">
                                 <div class="col-6">
                                     <label class="form-label" for="country">Country</label>
-                                    {{>countries-dropdown}}
+                                    <select id="country" name="country" class="form-select form-control">
+                                        <option value="all" !selected>all</option>
+                                        {{>countries-dropdown}}
+                                    </select>
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label" for="city">City</label>
@@ -81,8 +99,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-
                     </li>
                     <li class="list-group-item">
                         <input type="submit" class="form-control form-control-sm s-button" id="filter-submit"
@@ -119,11 +135,16 @@
                 </div>
             </div>
         </div>
+        <div id="page-changer-container">
+            <button class="page-changer-buttons" id="prev-page">PREV</button>
+            <button class="page-changer-buttons" id="next-page">NEXT</button>
+        </div>
+        
     </section>
 
     {{>about-section}}
 
-    <script src="JavaScript/listings"></script>
+    <script src="JavaScript/listings.js"></script>
     <script src="JavaScript/open-filters.js"></script>
 
 </body>
